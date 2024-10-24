@@ -1,13 +1,13 @@
-package com.iamfly.discovery_service;
+package org.iamfly.gatewayservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DiscoveryServiceApplicationTests {
+class GatewayServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

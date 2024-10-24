@@ -1,0 +1,27 @@
+services:
+  postgres_auth:
+    container_name: ms_pq_sql_auth
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: iamfly
+      POSTGRES_PASSWORD: iamfly
+      POSTGRES_DB: users
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_auth_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+
+
+
+
+networks:
+  backend:
+    driver: "bridge"
+
+volumes:
+  postgres_auth_data:
+

@@ -1,13 +1,13 @@
-package com.iamfly.gateway_service;
+package org.iamfly.configservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GatewayServiceApplicationTests {
+class ConfigServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
