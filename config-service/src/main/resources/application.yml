@@ -1,1 +1,16 @@
-spring.application.name=config-service
+spring:
+  application:
+    name: ms-config-service
+  profiles:
+    active: native
+
+  output:
+    ansi:
+      enabled: always
+
+server:
+  port: 9000
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG

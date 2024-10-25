@@ -1,0 +1,18 @@
+server:
+  port: 8001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://ms-dis-service:8761/eureka/"
+
+spring:
+  datasource:
+    url: jdbc:postgresql://ms_pq_sql:5432/users
+    username: iamfly
+    password: iamfly
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    org.springframework.security: trace

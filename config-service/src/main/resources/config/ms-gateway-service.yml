@@ -1,0 +1,12 @@
+server:
+  port: 9001
+
+spring:
+  cloud:
+    gateway:
+      routes:
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://ms-dis-service:8761/eureka/"

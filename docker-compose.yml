@@ -1,8 +1,7 @@
 services:
-  postgres_auth:
+  ms_postgres_auth:
     container_name: ms_pq_sql_auth
     image: postgres:latest
-    restart: always
     environment:
       POSTGRES_USER: iamfly
       POSTGRES_PASSWORD: iamfly
@@ -14,13 +13,58 @@ services:
     networks:
       - backend
 
+  ms-config-service:
+    container_name: ms-config-service
+    image: config-service:latest
+    networks:
+      - backend
+    ports:
+      - 9000:9000
+
+  ms-dis-service:
+    container_name: ms-dis-service
+    image: discovery-service:latest
+    restart: always
+    ports:
+      - 8761:8761
+    networks:
+      - backend
+    depends_on:
+      - ms-config-service
+
+  authentication-service:
+    container_name: authentication-service
+    image: authentication-service:latest
+    restart: always
+    ports:
+      - 8001:8001
+    networks:
+      - backend
+    depends_on:
+      - ms-config-service
+      - ms-dis-service
+      - ms-gateway-service
+
+  ms-gateway-service:
+    container_name: ms-gateway-service
+    image: gateway-service:latest
+    restart: always
+    ports:
+      - 9001:9001
+    networks:
+      - backend
+    depends_on:
+      - ms-config-service
+      - ms-dis-service
+
+
 
 
 
 
 networks:
   backend:
-    driver: "bridge"
+    driver: bridge
 
 volumes:
   postgres_auth_data:
