@@ -1,0 +1,11 @@
+spring:
+    application:
+      name: ms-gateway-service
+    output:
+      ansi:
+        enabled: always
+    config:
+      import: "configserver:"
+    cloud:
+      config:
+        uri: http://ms-config-service:9000
