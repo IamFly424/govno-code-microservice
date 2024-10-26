@@ -18,7 +18,7 @@ public interface UserRepository extends Repository<User, Integer> {
     @Modifying
     @Query("INSERT INTO t_user(username, email, password, created_at) VALUES (:username, :email, :password, :createdAt)")
     void saveUser(@Param("username") String username, @Param("email") String email,
-                  @Param("password") String password, @Param("created_at") LocalDateTime createdAt
+                  @Param("password") String password, @Param("createdAt") LocalDateTime createdAt
     );
 
     @Query("SELECT username, created_at FROM t_user WHERE username = :username")
