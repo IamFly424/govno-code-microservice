@@ -5,6 +5,13 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: AUTHENTICATION-SERVICE
+          uri: lb://AUTHENTICATION-SERVICE:8001
+          predicates:
+            - Path=/user/**
+    discovery:
+      locator:
+        enabled: true
 
 eureka:
   client:

@@ -8,11 +8,16 @@ eureka:
 
 spring:
   datasource:
-    url: jdbc:postgresql://ms_pq_sql:5432/users
+    url: jdbc:postgresql://ms_pq_sql_auth:5432/users
     username: iamfly
     password: iamfly
     driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
 
 logging:
   level:
     org.springframework.security: trace
+
+
