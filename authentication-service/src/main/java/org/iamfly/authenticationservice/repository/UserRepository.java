@@ -21,6 +21,9 @@ public interface UserRepository extends Repository<User, Integer> {
                   @Param("password") String password, @Param("createdAt") LocalDateTime createdAt
     );
 
+    @Query("SELECT password FROM t_user WHERE username = :username ")
+    String findPassword(@Param("username") String username);
+
     @Query("SELECT username, created_at FROM t_user WHERE username = :username")
     UserResponseDto findDtoByUsername(@Param("username") String username);
 

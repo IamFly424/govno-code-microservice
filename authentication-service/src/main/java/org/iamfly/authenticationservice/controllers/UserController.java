@@ -1,5 +1,6 @@
 package org.iamfly.authenticationservice.controllers;
 
+import org.iamfly.authenticationservice.assist.UserLoginDto;
 import org.iamfly.authenticationservice.assist.UserRequestDto;
 import org.iamfly.authenticationservice.assist.UserResponseDto;
 import org.iamfly.authenticationservice.service.UserService;
@@ -26,6 +27,11 @@ public class UserController {
     @GetMapping("/get")
     public ResponseEntity<UserResponseDto> getUser(@RequestParam("username") String username) {
         return ResponseEntity.ok().body(userService.findDtoByUsername(username));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody UserLoginDto user) {
+        return ResponseEntity.ok().body(userService.login(user));
     }
 
 }

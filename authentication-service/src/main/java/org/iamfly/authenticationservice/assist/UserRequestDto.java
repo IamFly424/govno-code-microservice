@@ -2,11 +2,16 @@ package org.iamfly.authenticationservice.assist;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 
 public class UserRequestDto {
 
+    @Min(3)
     private final String username;
+    @Email
     private final String email;
+    @Min(3)
     private final String password;
 
     @JsonCreator
