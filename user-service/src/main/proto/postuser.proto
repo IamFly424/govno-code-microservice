@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package postuser;
+
+message UsernameRequest {
+  string username = 1;
+}
+
+message UserResponse {
+  string username = 1;
+  google.protobuf.Timestamp created_at = 2;
+}
+
+service UserService {
+  rpc GetUserByUsername(UsernameRequest) returns (UserResponse);
+}
